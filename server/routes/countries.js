@@ -41,6 +41,7 @@ router.post("/", (req, res, next) => {
 
 // Update a country
 router.put("/:id", (req, res, next) => {
+  let { name, capitals, area, description } = req.body;
   Country.findByIdAndUpdate(req.params.id, { name, capitals, area, description })
     .then(country => {
       res.json({
